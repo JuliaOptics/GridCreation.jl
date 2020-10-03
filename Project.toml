@@ -1,0 +1,7 @@
+name = "GridCreation"
+uuid = "71e55505-9134-4914-97da-b2ab28305a13"
+authors = ["Brandon <brandondube@gmail.com> and contributors"]
+version = "0.1.0"
+
+[compat]
+julia = "1"
