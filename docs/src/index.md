@@ -9,6 +9,12 @@ GridCreation is a registered Julia package, it may be installed the usual way:
 julia> Pkg.add("GridCreation")
 ```
 
+## Rationale
+
+In Julia, it is viewed as idiomatic to use "meshgrid" for Cartesian grids.  This is because dot syntax broadcasts "correctly" between row and column vectors, so the grid need not be stored.  For this reason, mkCartVecs produces only vectors.  Because these is no "mixing" between X and Y, there is not a more performant approach.
+
+cartVecsToPolarGrid explicitly creates a meshgrid for its output.  This is because both the radial and azimuthal variables require some computation.  The duplicate computation is more expensive than the allocation when the grid is used several times, as in optical simulation and analysis.  For this reason, cartVecsToPolarGrid forms a grid.
+
 ## Functions
 ```@docs
 mkCartVecs
